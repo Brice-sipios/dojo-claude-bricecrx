@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --parchment:      #f5e6c8;
+  --parchment-mid:  #e0c99a;
+  --parchment-dark: #c9a87c;
+  --ink:            #2c1a0e;
+  --ink-faded:      #5c3d2e;
+  --blood:          #7a1414;
+  --blood-bright:   #a01e1e;
+  --gold:           #c9a227;
+  --gold-dark:      #8b6914;
+  --stone:          #160b02;
+  --stone-mid:      #251408;
+  --stone-light:    #3a2010;
+  --sea:            #7a9eb5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'IM Fell English', serif;
+  background-color: var(--stone);
+  color: var(--parchment);
+}
+
+.font-gothic  { font-family: 'UnifrakturMaguntia', cursive; }
+.font-cinzel  { font-family: 'Cinzel Decorative', cursive; }
+.font-fell    { font-family: 'IM Fell English', serif; }
+
+/* Ornamental divider */
+.ornament::before,
+.ornament::after {
+  content: '⸻';
+  color: var(--gold-dark);
+  opacity: 0.6;
+  margin: 0 0.5rem;
+}
+
+/* Parchment texture via CSS layered gradients */
+.parchment-bg {
+  background-color: var(--parchment);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 20% 20%, #ede0c0 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, #d4b896 0%, transparent 50%),
+    linear-gradient(160deg, #f5e6c8 0%, #e8d4a8 50%, #dfc99a 100%);
+  background-blend-mode: multiply, normal, normal, normal;
+}
+
+/* Worn border */
+.border-worn {
+  border: 3px solid var(--gold-dark);
+  box-shadow:
+    0 0 0 1px #5c3d0e44,
+    inset 0 0 12px #00000020,
+    0 8px 32px #00000060;
+}
+
+/* Stone button */
+.btn-medieval {
+  font-family: 'Cinzel Decorative', cursive;
+  background: linear-gradient(180deg, #5c2020 0%, #3a1010 50%, #2a0c0c 100%);
+  border: 2px solid var(--gold-dark);
+  border-bottom-color: #3a2000;
+  color: var(--parchment);
+  text-shadow: 0 1px 2px #00000080;
+  box-shadow: 0 4px 12px #00000060, inset 0 1px 0 #ffffff15;
+  transition: all 0.15s ease;
+  letter-spacing: 0.05em;
+}
+
+.btn-medieval:hover:not(:disabled) {
+  background: linear-gradient(180deg, #7a2a2a 0%, #521818 50%, #3a1010 100%);
+  box-shadow: 0 6px 20px #00000080, inset 0 1px 0 #ffffff20;
+  transform: translateY(-1px);
+}
+
+.btn-medieval:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px #00000060;
+}
+
+.btn-medieval:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Section labels */
+.label-medieval {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}

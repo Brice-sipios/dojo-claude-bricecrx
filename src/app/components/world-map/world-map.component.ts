@@ -123,7 +123,14 @@ export class WorldMapComponent implements OnInit, OnChanges, OnDestroy {
       .attr('width', '100%')
       .attr('height', '100%')
       .attr('viewBox', `0 0 ${w} ${h}`)
-      .attr('preserveAspectRatio', 'xMidYMid meet');
+      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .style('background', 'linear-gradient(160deg, #e8d4a8 0%, #dfc99a 50%, #d4b896 100%)');
+
+    // Ocean sphere
+    this.svg.append('path')
+      .datum({ type: 'Sphere' } as any)
+      .attr('d', pathGen as never)
+      .attr('fill', '#8aacbf');
 
     // Graticule
     const graticule = d3.geoGraticule();
@@ -131,8 +138,8 @@ export class WorldMapComponent implements OnInit, OnChanges, OnDestroy {
       .datum(graticule())
       .attr('d', pathGen)
       .attr('fill', 'none')
-      .attr('stroke', '#1e293b')
-      .attr('stroke-width', 0.3);
+      .attr('stroke', '#6a8fa888')
+      .attr('stroke-width', 0.4);
 
     // Countries
     const features = topojson.feature(topology, topology.objects.countries).features;
@@ -141,8 +148,8 @@ export class WorldMapComponent implements OnInit, OnChanges, OnDestroy {
       .join('path')
       .attr('class', 'country')
       .attr('d', pathGen as never)
-      .attr('fill', '#1e3a5f')
-      .attr('stroke', '#334155')
+      .attr('fill', '#c8a96e')
+      .attr('stroke', '#5c3d1e')
       .attr('stroke-width', 0.5);
 
     // Borders
@@ -150,7 +157,7 @@ export class WorldMapComponent implements OnInit, OnChanges, OnDestroy {
       .datum(topojson.mesh(topology, topology.objects.countries, (a, b) => a !== b))
       .attr('d', pathGen as never)
       .attr('fill', 'none')
-      .attr('stroke', '#334155')
+      .attr('stroke', '#5c3d1e')
       .attr('stroke-width', 0.3);
 
     // Responsive resize
@@ -213,7 +220,7 @@ export class WorldMapComponent implements OnInit, OnChanges, OnDestroy {
     this.svg.selectAll<SVGPathElement, { id: number }>('path.country')
       .filter(d => d.id === id)
       .classed('country-pulse', true)
-      .attr('fill', '#ef4444');
+      .attr('fill', '#7a1414');
   }
 
   private clearHighlight(): void {
@@ -221,7 +228,7 @@ export class WorldMapComponent implements OnInit, OnChanges, OnDestroy {
     this.svg.selectAll<SVGPathElement, { id: number }>('path.country')
       .filter(d => d.id === this.highlightedId)
       .classed('country-pulse', false)
-      .attr('fill', '#1e3a5f');
+      .attr('fill', '#c8a96e');
     this.highlightedId = null;
   }
 

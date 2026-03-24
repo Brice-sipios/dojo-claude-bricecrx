@@ -4,6 +4,7 @@
   pointer-events: none;
   z-index: 10;
   will-change: transform, left, top;
+  filter: drop-shadow(0 2px 4px #00000060);
 }
 
 :host ::ng-deep path.country {
@@ -11,15 +12,15 @@
 }
 
 :host ::ng-deep path.country:hover {
-  fill: #2563eb;
+  fill: #a07840;
   cursor: pointer;
 }
 
 :host ::ng-deep path.country-pulse {
-  animation: country-pulse 0.8s ease-in-out 3;
+  animation: country-pulse 0.9s ease-in-out 3;
 }
 
 @keyframes country-pulse {
-  0%, 100% { fill: #ef4444; }
-  50%       { fill: #fca5a5; }
+  0%, 100% { fill: #7a1414; }
+  50%       { fill: #c0392b; }
 }
