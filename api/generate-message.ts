@@ -44,6 +44,7 @@ Génère UNIQUEMENT le message Slack, sans intro ni explication.`,
     ],
   });
 
-  const text = message.content.find((b) => b.type === 'text')?.text ?? '';
+  const textBlock = message.content.find((b) => b.type === 'text');
+  const text = textBlock && textBlock.type === 'text' ? textBlock.text : '';
   res.status(200).json({ message: text });
 }
