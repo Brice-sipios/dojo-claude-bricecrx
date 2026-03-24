@@ -30,13 +30,14 @@ Contexte du voyage :
 - Météo sur place : ${weatherDesc}
 
 Règles absolues :
-- Style médiéval pompeux et théâtral, mais avec des références Slack modernes
+- ÉCRIS EN VIEUX FRANÇOIS du XIVe siècle : "je" → "je" ou "jou", "vous" → "vos", "est" → "est" ou "estre", "très" → "moult", "pour" → "por" ou "pour", "mais" → "mes", "notre" → "nostre", "votre" → "vostre", "peut" → "puet", "faire" → "faire" ou "fere", utilise "icelui", "ledit", "par deçà", "advenu", "oultre", "oncques", "pléust", "quérir", etc.
+- Mélange vieux françois authentique et références Slack modernes (mentions @manager, emojis)
 - Utilise des emojis médiévaux : ⚔️ 🏰 👑 🗡️ 🛡️ 🐉 🧙 🪄 📯 ⚜️
-- Adresse-toi au "Très Haut Sire @manager"
+- Adresse-toi à "Moult Hault Sire @manager"
 - Invoque le fun fact comme raison impérieuse du voyage
 - Mentionne la météo de façon dramatique
 - 4 à 6 lignes maximum
-- Termine par une formule de dévotion servile
+- Termine par une formule de dévotion servile en vieux françois
 
 Génère UNIQUEMENT le message Slack, sans intro ni explication.`,
       },
