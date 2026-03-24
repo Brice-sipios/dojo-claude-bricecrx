@@ -45,6 +45,7 @@ export class ResultModalComponent {
   @Input() country!: Country;
   @Input() weather: WeatherResult | null = null;
   @Input() isLoadingWeather = false;
+  @Input() isLoadingMessage = false;
   @Input() slackMessage = '';
 
   @Output() closed = new EventEmitter<void>();
