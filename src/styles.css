@@ -88,6 +88,38 @@ body {
   cursor: not-allowed;
 }
 
+/* ── Animations SVG médiévaux ─────────────────────────────── */
+
+/* Chevalier : balancement lent comme sur un cheval au pas */
+@keyframes sway {
+  0%   { transform: rotate(-3deg) translateY(0px);   }
+  30%  { transform: rotate(0deg)  translateY(-2px);  }
+  60%  { transform: rotate(3deg)  translateY(0px);   }
+  100% { transform: rotate(-3deg) translateY(0px);   }
+}
+.anim-sway {
+  transform-origin: bottom center;
+  animation: sway 4s ease-in-out infinite;
+}
+
+/* Fleur-de-lis / ornement : flottement vertical lent */
+@keyframes float {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-5px); }
+}
+.anim-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Croix : pulsation lumineuse */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.7;  filter: drop-shadow(0 0 3px #c9a22755);  }
+  50%       { opacity: 1.0;  filter: drop-shadow(0 0 10px #c9a227bb); }
+}
+.anim-pulse {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
 /* Section labels */
 .label-medieval {
   font-family: 'Cinzel Decorative', cursive;

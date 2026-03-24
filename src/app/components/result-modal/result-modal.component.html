@@ -22,7 +22,16 @@
     <!-- Header parchemin -->
     <div class="text-center px-6 pt-8 pb-4"
          style="border-bottom: 2px solid #8b691455; position:relative;">
-      <div class="text-5xl mb-1 drop-shadow">{{ country.flag }}</div>
+      <!-- Écu flanquant le drapeau -->
+      <div class="flex items-center justify-center gap-3 mb-1">
+        <div style="opacity:0.7; filter:drop-shadow(0 1px 4px #00000040);">
+          <app-medieval-icon icon="shield" [size]="32" anim="float"/>
+        </div>
+        <div class="text-5xl drop-shadow">{{ country.flag }}</div>
+        <div style="opacity:0.7; filter:drop-shadow(0 1px 4px #00000040); transform:scaleX(-1);">
+          <app-medieval-icon icon="shield" [size]="32" anim="float"/>
+        </div>
+      </div>
       <h2 class="font-gothic leading-tight" style="font-size:2rem; color:#2c1a0e;">{{ country.name }}</h2>
       <p class="font-fell italic text-sm mt-0.5" style="color:#5c3d2e;">
         Cité capitale : <strong>{{ country.capital }}</strong>

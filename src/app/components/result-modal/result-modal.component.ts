@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MedievalIconComponent } from '../medieval-icon/medieval-icon.component';
 import {
   animate,
   style,
@@ -11,7 +12,7 @@ import { Country, WeatherResult } from '../../models/country.model';
 @Component({
   selector: 'app-result-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MedievalIconComponent],
   templateUrl: './result-modal.component.html',
   styleUrl: './result-modal.component.css',
   animations: [

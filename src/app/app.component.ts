@@ -7,11 +7,12 @@ import { WeatherService } from './services/weather.service';
 import { MessageService } from './services/message.service';
 import { WorldMapComponent } from './components/world-map/world-map.component';
 import { ResultModalComponent } from './components/result-modal/result-modal.component';
+import { MedievalIconComponent } from './components/medieval-icon/medieval-icon.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, WorldMapComponent, ResultModalComponent],
+  imports: [CommonModule, WorldMapComponent, ResultModalComponent, MedievalIconComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
