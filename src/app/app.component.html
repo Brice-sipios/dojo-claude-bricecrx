@@ -1,10 +1,48 @@
-<div class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center gap-8">
-  <h1 class="text-5xl font-bold tracking-tight">🎯 Dartaway</h1>
-  <p class="text-gray-400 text-lg">Lance une fléchette sur la carte du monde</p>
-  <button class="bg-red-500 hover:bg-red-600 text-white font-semibold px-8 py-4 rounded-2xl text-xl transition-all shadow-lg">
-    🎯 Lancer la fléchette !
-  </button>
-  <div class="w-full max-w-4xl h-96 bg-gray-800 rounded-2xl flex items-center justify-center text-gray-500">
-    Carte du monde ici
+<div class="h-screen bg-gray-950 text-white flex flex-col overflow-hidden">
+
+  <!-- Header -->
+  <header class="text-center pt-4 pb-2 px-4 shrink-0">
+    <h1 class="text-3xl font-bold tracking-tight">🎯 Dartaway</h1>
+    <p class="text-gray-400 mt-1 text-sm">Lance une fléchette, découvre ta prochaine destination !</p>
+  </header>
+
+  <!-- Launch button -->
+  <div class="flex justify-center py-2 shrink-0">
+    <button
+      class="bg-red-600 hover:bg-red-500 disabled:bg-gray-700 disabled:cursor-not-allowed
+             text-white font-bold px-8 py-3 rounded-2xl text-base transition-all shadow-lg
+             active:scale-95"
+      [disabled]="!isIdle"
+      (click)="throwDart()"
+    >
+      @if (isIdle) {
+        🎯 Lancer la fléchette !
+      } @else {
+        <span class="animate-pulse">En vol...</span>
+      }
+    </button>
   </div>
+
+  <!-- Map — prend tout l'espace restant -->
+  <div class="flex-1 mx-4 mb-4 min-h-0 bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 shadow-xl">
+    <app-world-map
+      class="block w-full h-full"
+      [targetCountry]="selectedCountry"
+      [animationPhase]="animationPhase"
+      (dartLanded)="onDartLanded()"
+    />
+  </div>
+
 </div>
+
+<!-- Modal -->
+@if (showModal && selectedCountry) {
+  <app-result-modal
+    [country]="selectedCountry"
+    [weather]="weatherResult"
+    [isLoadingWeather]="isLoadingWeather"
+    [slackMessage]="slackMessage"
+    (closed)="closeModal()"
+    (relaunch)="relaunch()"
+  />
+}

@@ -1,0 +1,25 @@
+.dart-emoji {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
+  z-index: 10;
+  will-change: transform, left, top;
+}
+
+:host ::ng-deep path.country {
+  transition: fill 0.2s ease;
+}
+
+:host ::ng-deep path.country:hover {
+  fill: #2563eb;
+  cursor: pointer;
+}
+
+:host ::ng-deep path.country-pulse {
+  animation: country-pulse 0.8s ease-in-out 3;
+}
+
+@keyframes country-pulse {
+  0%, 100% { fill: #ef4444; }
+  50%       { fill: #fca5a5; }
+}

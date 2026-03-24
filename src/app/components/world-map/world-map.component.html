@@ -1,0 +1,8 @@
+<div #mapContainer class="relative w-full h-full">
+  <!-- D3 renders the SVG here -->
+  <span
+    class="dart-emoji"
+    [@dartFlight]="dartAnimState"
+    (@dartFlight.done)="onDartAnimationDone($event)"
+  >🎯</span>
+</div>
